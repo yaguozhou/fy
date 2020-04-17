@@ -1,0 +1,1012 @@
+{
+  "blng_sents_part": {
+    "sentence-count": 6,
+    "sentence-pair": [
+      {
+        "sentence": "Iron exposed to damp air will rust.",
+        "sentence-eng": "Iron exposed to damp air will <b>rust</b>.",
+        "sentence-translation": "放在空气潮湿地方的铁会生锈。",
+        "speech-size": "10kb",
+        "aligned-words": {
+          "src": {
+            "chars": [
+              {
+                "@s": "1",
+                "@e": "5",
+                "aligns": {
+                  "sc": [
+                    {
+                      "@id": "0"
+                    }
+                  ],
+                  "tc": [
+                    {
+                      "@id": "2"
+                    }
+                  ]
+                },
+                "@id": "0"
+              },
+              {
+                "@s": "17",
+                "@e": "21",
+                "aligns": {
+                  "sc": [
+                    {
+                      "@id": "1"
+                    }
+                  ],
+                  "tc": [
+                    {
+                      "@id": "1"
+                    }
+                  ]
+                },
+                "@id": "1"
+              },
+              {
+                "@s": "22",
+                "@e": "25",
+                "aligns": {
+                  "sc": [
+                    {
+                      "@id": "2"
+                    }
+                  ],
+                  "tc": [
+                    {
+                      "@id": "0"
+                    }
+                  ]
+                },
+                "@id": "2"
+              },
+              {
+                "@s": "26",
+                "@e": "30",
+                "aligns": {
+                  "sc": [
+                    {
+                      "@id": "3"
+                    }
+                  ],
+                  "tc": [
+                    {
+                      "@id": "3"
+                    }
+                  ]
+                },
+                "@id": "3"
+              },
+              {
+                "q": [
+                  {
+                    "@s": "31",
+                    "@e": "35"
+                  }
+                ],
+                "@s": "31",
+                "@e": "35",
+                "aligns": {
+                  "sc": [
+                    {
+                      "@id": "4"
+                    }
+                  ],
+                  "tc": [
+                    {
+                      "@id": "4"
+                    }
+                  ]
+                },
+                "@id": "4"
+              }
+            ]
+          },
+          "tran": {
+            "chars": [
+              {
+                "@s": "3",
+                "@e": "5",
+                "aligns": {
+                  "sc": [
+                    {
+                      "@id": "2"
+                    }
+                  ],
+                  "tc": [
+                    {
+                      "@id": "0"
+                    }
+                  ]
+                },
+                "@id": "0"
+              },
+              {
+                "@s": "5",
+                "@e": "7",
+                "aligns": {
+                  "sc": [
+                    {
+                      "@id": "1"
+                    }
+                  ],
+                  "tc": [
+                    {
+                      "@id": "1"
+                    }
+                  ]
+                },
+                "@id": "1"
+              },
+              {
+                "@s": "10",
+                "@e": "11",
+                "aligns": {
+                  "sc": [
+                    {
+                      "@id": "0"
+                    }
+                  ],
+                  "tc": [
+                    {
+                      "@id": "2"
+                    }
+                  ]
+                },
+                "@id": "2"
+              },
+              {
+                "@s": "11",
+                "@e": "12",
+                "aligns": {
+                  "sc": [
+                    {
+                      "@id": "3"
+                    }
+                  ],
+                  "tc": [
+                    {
+                      "@id": "3"
+                    }
+                  ]
+                },
+                "@id": "3"
+              },
+              {
+                "@s": "12",
+                "@e": "14",
+                "aligns": {
+                  "sc": [
+                    {
+                      "@id": "4"
+                    }
+                  ],
+                  "tc": [
+                    {
+                      "@id": "4"
+                    }
+                  ]
+                },
+                "@id": "4"
+              }
+            ]
+          }
+        },
+        "url": "http://dict.cn/rust",
+        "sentence-speech": "Iron+exposed+to+damp+air+will+rust.&le=eng"
+      },
+      {
+        "sentence": "Exposed iron will gradually rust away to powder.",
+        "sentence-eng": "Exposed iron will gradually <b>rust</b> away to powder.",
+        "sentence-translation": "放在露天的铁会逐渐锈成粉末。",
+        "speech-size": "14kb",
+        "aligned-words": {
+          "src": {
+            "chars": [
+              {
+                "@s": "1",
+                "@e": "8",
+                "aligns": {
+                  "sc": [
+                    {
+                      "@id": "0"
+                    }
+                  ],
+                  "tc": [
+                    {
+                      "@id": "0"
+                    }
+                  ]
+                },
+                "@id": "0"
+              },
+              {
+                "@s": "9",
+                "@e": "13",
+                "aligns": {
+                  "sc": [
+                    {
+                      "@id": "1"
+                    }
+                  ],
+                  "tc": [
+                    {
+                      "@id": "1"
+                    }
+                  ]
+                },
+                "@id": "1"
+              },
+              {
+                "@s": "14",
+                "@e": "18",
+                "aligns": {
+                  "sc": [
+                    {
+                      "@id": "2"
+                    }
+                  ],
+                  "tc": [
+                    {
+                      "@id": "2"
+                    }
+                  ]
+                },
+                "@id": "2"
+              },
+              {
+                "@s": "19",
+                "@e": "28",
+                "aligns": {
+                  "sc": [
+                    {
+                      "@id": "3"
+                    }
+                  ],
+                  "tc": [
+                    {
+                      "@id": "3"
+                    }
+                  ]
+                },
+                "@id": "3"
+              },
+              {
+                "q": [
+                  {
+                    "@s": "29",
+                    "@e": "33"
+                  }
+                ],
+                "@s": "29",
+                "@e": "38",
+                "aligns": {
+                  "sc": [
+                    {
+                      "@id": "4"
+                    }
+                  ],
+                  "tc": [
+                    {
+                      "@id": "4"
+                    }
+                  ]
+                },
+                "@id": "4"
+              },
+              {
+                "@s": "42",
+                "@e": "48",
+                "aligns": {
+                  "sc": [
+                    {
+                      "@id": "5"
+                    }
+                  ],
+                  "tc": [
+                    {
+                      "@id": "5"
+                    }
+                  ]
+                },
+                "@id": "5"
+              }
+            ]
+          },
+          "tran": {
+            "chars": [
+              {
+                "@s": "1",
+                "@e": "5",
+                "aligns": {
+                  "sc": [
+                    {
+                      "@id": "0"
+                    }
+                  ],
+                  "tc": [
+                    {
+                      "@id": "0"
+                    }
+                  ]
+                },
+                "@id": "0"
+              },
+              {
+                "@s": "6",
+                "@e": "7",
+                "aligns": {
+                  "sc": [
+                    {
+                      "@id": "1"
+                    }
+                  ],
+                  "tc": [
+                    {
+                      "@id": "1"
+                    }
+                  ]
+                },
+                "@id": "1"
+              },
+              {
+                "@s": "7",
+                "@e": "8",
+                "aligns": {
+                  "sc": [
+                    {
+                      "@id": "2"
+                    }
+                  ],
+                  "tc": [
+                    {
+                      "@id": "2"
+                    }
+                  ]
+                },
+                "@id": "2"
+              },
+              {
+                "@s": "8",
+                "@e": "10",
+                "aligns": {
+                  "sc": [
+                    {
+                      "@id": "3"
+                    }
+                  ],
+                  "tc": [
+                    {
+                      "@id": "3"
+                    }
+                  ]
+                },
+                "@id": "3"
+              },
+              {
+                "@s": "10",
+                "@e": "11",
+                "aligns": {
+                  "sc": [
+                    {
+                      "@id": "4"
+                    }
+                  ],
+                  "tc": [
+                    {
+                      "@id": "4"
+                    }
+                  ]
+                },
+                "@id": "4"
+              },
+              {
+                "@s": "12",
+                "@e": "14",
+                "aligns": {
+                  "sc": [
+                    {
+                      "@id": "5"
+                    }
+                  ],
+                  "tc": [
+                    {
+                      "@id": "5"
+                    }
+                  ]
+                },
+                "@id": "5"
+              }
+            ]
+          }
+        },
+        "url": "http://zuci.chaziwang.com/showci-40845.html",
+        "sentence-speech": "Exposed+iron+will+gradually+rust+away+to+powder.&le=eng"
+      },
+      {
+        "sentence": "In the room there was a huge stove overlaid with rust.",
+        "sentence-eng": "In the room there was a huge stove overlaid with <b>rust</b>.",
+        "sentence-translation": "房间中有一个长满了锈的大炉子。",
+        "speech-size": "15kb",
+        "aligned-words": {
+          "src": {
+            "chars": [
+              {
+                "@s": "1",
+                "@e": "7",
+                "aligns": {
+                  "sc": [
+                    {
+                      "@id": "0"
+                    }
+                  ],
+                  "tc": [
+                    {
+                      "@id": "1"
+                    }
+                  ]
+                },
+                "@id": "0"
+              },
+              {
+                "@s": "8",
+                "@e": "12",
+                "aligns": {
+                  "sc": [
+                    {
+                      "@id": "1"
+                    }
+                  ],
+                  "tc": [
+                    {
+                      "@id": "0"
+                    }
+                  ]
+                },
+                "@id": "1"
+              },
+              {
+                "@s": "13",
+                "@e": "18",
+                "aligns": {
+                  "sc": [
+                    {
+                      "@id": "2"
+                    }
+                  ],
+                  "tc": [
+                    {
+                      "@id": "2"
+                    }
+                  ]
+                },
+                "@id": "2"
+              },
+              {
+                "@s": "19",
+                "@e": "24",
+                "aligns": {
+                  "sc": [
+                    {
+                      "@id": "3"
+                    }
+                  ],
+                  "tc": [
+                    {
+                      "@id": "3"
+                    }
+                  ]
+                },
+                "@id": "3"
+              },
+              {
+                "@s": "25",
+                "@e": "29",
+                "aligns": {
+                  "sc": [
+                    {
+                      "@id": "5"
+                    }
+                  ],
+                  "tc": [
+                    {
+                      "@id": "7"
+                    }
+                  ]
+                },
+                "@id": "5"
+              },
+              {
+                "@s": "30",
+                "@e": "44",
+                "aligns": {
+                  "sc": [
+                    {
+                      "@id": "6"
+                    }
+                  ],
+                  "tc": [
+                    {
+                      "@id": "8"
+                    }
+                  ]
+                },
+                "@id": "6"
+              },
+              {
+                "q": [
+                  {
+                    "@s": "50",
+                    "@e": "54"
+                  }
+                ],
+                "@s": "50",
+                "@e": "54",
+                "aligns": {
+                  "sc": [
+                    {
+                      "@id": "8"
+                    }
+                  ],
+                  "tc": [
+                    {
+                      "@id": "6"
+                    }
+                  ]
+                },
+                "@id": "8"
+              }
+            ]
+          },
+          "tran": {
+            "chars": [
+              {
+                "@s": "1",
+                "@e": "3",
+                "aligns": {
+                  "sc": [
+                    {
+                      "@id": "1"
+                    }
+                  ],
+                  "tc": [
+                    {
+                      "@id": "0"
+                    }
+                  ]
+                },
+                "@id": "0"
+              },
+              {
+                "@s": "3",
+                "@e": "4",
+                "aligns": {
+                  "sc": [
+                    {
+                      "@id": "0"
+                    }
+                  ],
+                  "tc": [
+                    {
+                      "@id": "1"
+                    }
+                  ]
+                },
+                "@id": "1"
+              },
+              {
+                "@s": "4",
+                "@e": "5",
+                "aligns": {
+                  "sc": [
+                    {
+                      "@id": "2"
+                    }
+                  ],
+                  "tc": [
+                    {
+                      "@id": "2"
+                    }
+                  ]
+                },
+                "@id": "2"
+              },
+              {
+                "@s": "5",
+                "@e": "6",
+                "aligns": {
+                  "sc": [
+                    {
+                      "@id": "3"
+                    }
+                  ],
+                  "tc": [
+                    {
+                      "@id": "3"
+                    }
+                  ]
+                },
+                "@id": "3"
+              },
+              {
+                "@s": "10",
+                "@e": "11",
+                "aligns": {
+                  "sc": [
+                    {
+                      "@id": "8"
+                    }
+                  ],
+                  "tc": [
+                    {
+                      "@id": "6"
+                    }
+                  ]
+                },
+                "@id": "6"
+              },
+              {
+                "@s": "11",
+                "@e": "13",
+                "aligns": {
+                  "sc": [
+                    {
+                      "@id": "5"
+                    }
+                  ],
+                  "tc": [
+                    {
+                      "@id": "7"
+                    }
+                  ]
+                },
+                "@id": "7"
+              },
+              {
+                "@s": "13",
+                "@e": "15",
+                "aligns": {
+                  "sc": [
+                    {
+                      "@id": "6"
+                    }
+                  ],
+                  "tc": [
+                    {
+                      "@id": "8"
+                    }
+                  ]
+                },
+                "@id": "8"
+              }
+            ]
+          }
+        },
+        "url": "http://www.chazidian.com/dict/stove room/",
+        "sentence-speech": "In+the+room+there+was+a+huge+stove+overlaid+with+rust.&le=eng"
+      }
+    ],
+    "more": "blng_sents"
+  },
+  "input": "rust",
+  "meta": {
+    "input": "rust",
+    "guessLanguage": "eng",
+    "le": "en",
+    "lang": "eng",
+    "dicts": [
+      "blng_sents_part",
+      "meta",
+      "rel_word",
+      "simple",
+      "phrs"
+    ]
+  },
+  "rel_word": {
+    "word": "rust",
+    "stem": "rust",
+    "rels": [
+      {
+        "rel": {
+          "pos": "adj.",
+          "words": [
+            {
+              "word": "rusty",
+              "tran": " 生锈的，腐蚀的；铁锈色的，锈色的；迟钝的"
+            },
+            {
+              "word": "rusted",
+              "tran": " 锈的"
+            },
+            {
+              "word": "rusting",
+              "tran": " 生锈的"
+            },
+            {
+              "word": "rustless",
+              "tran": " 不生锈的；无锈的"
+            }
+          ]
+        }
+      },
+      {
+        "rel": {
+          "pos": "n.",
+          "words": [
+            {
+              "word": "rusting",
+              "tran": " 生锈；锈蚀"
+            },
+            {
+              "word": "rustiness",
+              "tran": " 生锈；声音嘶哑"
+            }
+          ]
+        }
+      },
+      {
+        "rel": {
+          "pos": "v.",
+          "words": [
+            {
+              "word": "rusted",
+              "tran": " 生锈（rust的过去式和过去分词）；迟钝"
+            },
+            {
+              "word": "rusting",
+              "tran": " 生锈（rust的ing形式）"
+            }
+          ]
+        }
+      }
+    ]
+  },
+  "le": "en",
+  "simple": {
+    "query": "rust",
+    "word": [
+      {
+        "usphone": "rʌst",
+        "ukphone": "rʌst",
+        "ukspeech": "rust&type=1",
+        "return-phrase": "rust",
+        "usspeech": "rust&type=2"
+      }
+    ]
+  },
+  "lang": "eng",
+  "phrs": {
+    "word": "rust",
+    "phrs": [
+      {
+        "phr": {
+          "headword": {
+            "l": {
+              "i": "rust prevention"
+            }
+          },
+          "trs": [
+            {
+              "tr": {
+                "l": {
+                  "i": "防锈处理"
+                }
+              }
+            }
+          ],
+          "source": ""
+        }
+      },
+      {
+        "phr": {
+          "headword": {
+            "l": {
+              "i": "rust preventive"
+            }
+          },
+          "trs": [
+            {
+              "tr": {
+                "l": {
+                  "i": "防锈剂"
+                }
+              }
+            }
+          ],
+          "source": ""
+        }
+      },
+      {
+        "phr": {
+          "headword": {
+            "l": {
+              "i": "rust removal"
+            }
+          },
+          "trs": [
+            {
+              "tr": {
+                "l": {
+                  "i": "除锈；除锈器"
+                }
+              }
+            }
+          ],
+          "source": ""
+        }
+      },
+      {
+        "phr": {
+          "headword": {
+            "l": {
+              "i": "rust resistance"
+            }
+          },
+          "trs": [
+            {
+              "tr": {
+                "l": {
+                  "i": "抗锈蚀性；耐锈蚀性；耐锈蚀能力"
+                }
+              }
+            }
+          ],
+          "source": ""
+        }
+      },
+      {
+        "phr": {
+          "headword": {
+            "l": {
+              "i": "rust remover"
+            }
+          },
+          "trs": [
+            {
+              "tr": {
+                "l": {
+                  "i": "除锈剂"
+                }
+              }
+            }
+          ],
+          "source": ""
+        }
+      },
+      {
+        "phr": {
+          "headword": {
+            "l": {
+              "i": "rust belt"
+            }
+          },
+          "trs": [
+            {
+              "tr": {
+                "l": {
+                  "i": "铁锈地带（指从前工业繁盛今已衰落的发达国家一些地区）"
+                }
+              }
+            }
+          ],
+          "source": ""
+        }
+      },
+      {
+        "phr": {
+          "headword": {
+            "l": {
+              "i": "rust inhibitor"
+            }
+          },
+          "trs": [
+            {
+              "tr": {
+                "l": {
+                  "i": "防锈剂；抗腐蚀添加剂"
+                }
+              }
+            }
+          ],
+          "source": ""
+        }
+      },
+      {
+        "phr": {
+          "headword": {
+            "l": {
+              "i": "stem rust"
+            }
+          },
+          "trs": [
+            {
+              "tr": {
+                "l": {
+                  "i": "杆锈；茎锈病"
+                }
+              }
+            }
+          ],
+          "source": ""
+        }
+      },
+      {
+        "phr": {
+          "headword": {
+            "l": {
+              "i": "rust protection"
+            }
+          },
+          "trs": [
+            {
+              "tr": {
+                "l": {
+                  "i": "防锈，抗锈"
+                }
+              }
+            }
+          ],
+          "source": ""
+        }
+      },
+      {
+        "phr": {
+          "headword": {
+            "l": {
+              "i": "white rust"
+            }
+          },
+          "trs": [
+            {
+              "tr": {
+                "l": {
+                  "i": "[植物病理]白锈病"
+                }
+              }
+            }
+          ],
+          "source": ""
+        }
+      },
+      {
+        "phr": {
+          "headword": {
+            "l": {
+              "i": "red rust"
+            }
+          },
+          "trs": [
+            {
+              "tr": {
+                "l": {
+                  "i": "赤锈病；烟叶斑点病"
+                }
+              }
+            }
+          ],
+          "source": ""
+        }
+      },
+      {
+        "phr": {
+          "headword": {
+            "l": {
+              "i": "rust free"
+            }
+          },
+          "trs": [
+            {
+              "tr": {
+                "l": {
+                  "i": "不锈的；未生锈的"
+                }
+              }
+            }
+          ],
+          "source": ""
+        }
+      }
+    ]
+  }
+}

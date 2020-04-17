@@ -2,7 +2,7 @@
 
 fy, abbreviation of fanyi, is a translation cli tool written by rust.
 
-## build and install on Linux and Mac X OS
+## build and install on Linux and Mac OS X
 
 steps:
 

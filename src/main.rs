@@ -44,7 +44,7 @@ fn main() -> Result<(), Box<dyn Error>> {
     let to_search = matches.value_of("to_search").unwrap();
 
     let url = "http://dict.youdao.com/jsonapi?";
-    let dicts = [["blng_sents_part", "rel_word", "simple", "phrs", "meta"]];
+    let dicts = [["blng_sents_part", "rel_word", "simple", "phrs", "meta", "syno"]];
 
     let dicts = json!(
         {
@@ -63,7 +63,7 @@ fn main() -> Result<(), Box<dyn Error>> {
         .query(&[("dicts", dicts)])
         .send()?;
     let json_result: FyResult = resp.json()?;
-    println!("{}", json_result.text());
+    println!("{}", &json_result.text());
 
     Ok(())
 }

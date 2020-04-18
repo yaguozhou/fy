@@ -19,6 +19,7 @@ pub struct FyResult {
     phrs: Option<phrs>,
     rel_word: Option<rel_word>,
     simple: Option<simple>,
+    syno: Option<synos>,
 }
 
 #[derive(Debug, Clone, Serialize, Deserialize)]
@@ -99,6 +100,22 @@ struct word {
     tran: String,
 }
 
+#[derive(Debug, Clone, Serialize, Deserialize)]
+struct synos {
+    synos: Vec<syno>,
+}
+
+#[derive(Debug, Clone, Serialize, Deserialize)]
+struct syno {
+    syno: syno_one,
+}
+
+#[derive(Debug, Clone, Serialize, Deserialize)]
+struct syno_one {
+    pos: String,
+    tran: String,
+}
+
 impl phrs {
     fn text(&self) -> String {
         let mut result = String::new();
@@ -148,11 +165,22 @@ impl rel_word {
     }
 }
 
+impl synos {
+    fn text(&self) -> String {
+        let mut result = String::new();
+        self.synos.iter().for_each(|one| {
+            result.push_str(&(String::new() + &one.syno.pos + &" " + &one.syno.tran + &"\n"));
+        });
+        result
+    }
+}
+
 impl FyResult {
     pub fn text(&self) -> String {
         format!(r#"{}
 美[{}], 英[{}]
 
+{}
 {}
 -----短语-----
 {}
@@ -171,6 +199,10 @@ impl FyResult {
                     }
                     _ => "".into()
                 },
+                match &self.syno {
+                    Some(syno) => syno.text().red().bold(),
+                    _ => "".into()
+                },
                 match &self.rel_word {
                     Some(rel) => rel.text().blue().bold(),
                     _ => "".into()
@@ -180,7 +212,7 @@ impl FyResult {
                     _ => "".into()
                 },
                 match &self.blng_sents_part {
-                    Some(blng) => blng.text().red().bold(),
+                    Some(blng) => blng.text().cyan().bold(),
                     _ => "".into()
                 }
         )

@@ -20,6 +20,7 @@ pub struct FyResult {
     rel_word: Option<rel_word>,
     simple: Option<simple>,
     syno: Option<synos>,
+    ec: Option<ec>,
 }
 
 #[derive(Debug, Clone, Serialize, Deserialize)]
@@ -116,6 +117,37 @@ struct syno_one {
     tran: String,
 }
 
+#[derive(Debug, Clone, Serialize, Deserialize)]
+struct ec {
+    word: Vec<ec_word>,
+}
+
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(rename = "word")]
+struct ec_word {
+    usphone: Option<String>,
+    ukphone: Option<String>,
+    trs: Vec<ec_tr>,
+}
+
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(rename = "tr")]
+struct ec_tr {
+    tr: Vec<ec_l>,
+}
+
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(rename = "l")]
+struct ec_l {
+    l: ec_i
+}
+
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(rename = "i")]
+struct ec_i {
+    i: Vec<String>
+}
+
 impl phrs {
     fn text(&self) -> String {
         let mut result = String::new();
@@ -167,12 +199,26 @@ impl synos {
     }
 }
 
+impl ec {
+    fn text(&self) -> String {
+        let mut result = String::new();
+        self.word.iter().for_each(|x| {
+            result.push_str(&format!("美[{}], 英[{}]",
+                                     &x.usphone.as_ref().unwrap_or(&"".to_string()),
+                                     &x.ukphone.as_ref().unwrap_or(&"".to_string())));
+            result.push_str("\n\n");
+            x.trs.iter().for_each(|y| {
+                result.push_str(&y.tr[0].l.i[0]);
+                result.push_str("\n");
+            })
+        });
+        result
+    }
+}
+
 impl FyResult {
     pub fn text(&self) -> String {
         format!(r#"{}
-美[{}], 英[{}]
-
------释义-----
 {}
 -----同根-----
 {}
@@ -181,20 +227,8 @@ impl FyResult {
 -----例句-----
 {}"#,
                 self.input.red().bold().underline(),
-                match &self.simple {
-                    Some(simple) => {
-                        simple.word[0].usphone.as_ref().unwrap_or(&"".to_string()).green().bold()
-                    }
-                    _ => "".into()
-                },
-                match &self.simple {
-                    Some(simple) => {
-                        simple.word[0].ukphone.as_ref().unwrap_or(&"".to_string()).green().bold()
-                    }
-                    _ => "".into()
-                },
-                match &self.syno {
-                    Some(syno) => syno.text().red().bold(),
+                match &self.ec {
+                    Some(ec) => ec.text().red().bold(),
                     _ => "".into()
                 },
                 match &self.rel_word {

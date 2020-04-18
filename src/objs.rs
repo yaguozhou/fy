@@ -135,10 +135,7 @@ impl blng_sents_part {
     fn text(&self) -> String {
         let mut result = String::new();
         for i in &self.sentence_pair {
-            result.push_str(&(i.sentence));
-            result.push_str("\n");
-            result.push_str(&(i.sentence_translation));
-            result.push_str("\n");
+            result.push_str(&(String::new() + &i.sentence + &"\n" + &i.sentence_translation + &"\n"));
         }
         result
     }
@@ -152,12 +149,7 @@ impl rel_word {
             result.push_str(&pos);
             result.push_str("\n");
             i.rel.words.iter().for_each(|x| {
-                let mut s = String::new();
-                s.push_str(&x.word);
-                s.push_str(" ");
-                s.push_str(&x.tran);
-                result.push_str(&s);
-                result.push_str("\n");
+                result.push_str(&(String::new() + &x.word + &" " + &x.tran + "\n"));
             }
             );
         }
@@ -186,7 +178,7 @@ impl FyResult {
 {}
 -----例句-----
 {}"#,
-                self.input.red().bold(),
+                self.input.red().bold().underline(),
                 match &self.simple {
                     Some(simple) => {
                         simple.word[0].usphone.as_ref().unwrap_or(&"".to_string()).green().bold()

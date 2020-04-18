@@ -54,7 +54,7 @@ fn main() -> Result<(), Box<dyn Error>> {
     ).to_string();
     let client = Client::builder()
         .connect_timeout(Duration::from_secs(5))
-        .timeout(Duration::from_secs(10))
+        .timeout(Duration::from_secs(5))
         .user_agent("curl")
         .build()?;
 

@@ -19,7 +19,6 @@ pub struct FyResult {
     phrs: Option<phrs>,
     rel_word: Option<rel_word>,
     simple: Option<simple>,
-    syno: Option<synos>,
     ec: Option<ec>,
 }
 
@@ -73,7 +72,6 @@ struct l {
     i: String,
 }
 
-
 #[derive(Debug, Clone, Serialize, Deserialize)]
 struct tr {
     tr: headword,
@@ -98,22 +96,6 @@ struct rel_one {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 struct word {
     word: String,
-    tran: String,
-}
-
-#[derive(Debug, Clone, Serialize, Deserialize)]
-struct synos {
-    synos: Vec<syno>,
-}
-
-#[derive(Debug, Clone, Serialize, Deserialize)]
-struct syno {
-    syno: syno_one,
-}
-
-#[derive(Debug, Clone, Serialize, Deserialize)]
-struct syno_one {
-    pos: String,
     tran: String,
 }
 
@@ -185,16 +167,6 @@ impl rel_word {
             }
             );
         }
-        result
-    }
-}
-
-impl synos {
-    fn text(&self) -> String {
-        let mut result = String::new();
-        self.synos.iter().for_each(|one| {
-            result.push_str(&(String::new() + &one.syno.pos + &" " + &one.syno.tran + &"\n"));
-        });
         result
     }
 }

@@ -177,9 +177,11 @@ impl ec {
     fn text(&self) -> String {
         let mut result = String::new();
         self.word.iter().for_each(|x| {
-            result.push_str(&format!("美[{}], 英[{}]",
-                                     x.usphone.as_ref().unwrap_or(&"".to_string()),
-                                     x.ukphone.as_ref().unwrap_or(&"".to_string())));
+            result.push_str(
+                format!("美[{}], 英[{}]",
+                         x.usphone.as_deref().unwrap_or(""),
+                         x.ukphone.as_deref().unwrap_or("")).as_str()
+            );
             result.push_str("\n\n");
             x.trs.iter().for_each(|y| {
                 result.push_str(&y.tr[0].l.i[0]);

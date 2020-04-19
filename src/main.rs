@@ -35,13 +35,13 @@ fn main() -> Result<(), Box<dyn Error>> {
         .version(crate_version!())
         .author(crate_authors!())
         .about(crate_description!())
-        .arg(Arg::with_name("to_search")
+        .arg(Arg::with_name("to_translate")
             .required(true)
-            .help("word to search")
+            .help("word to translate")
         )
         .get_matches();
 
-    let to_search = matches.value_of("to_search").unwrap();
+    let to_translate = matches.value_of("to_translate").unwrap();
 
     let url = "http://dict.youdao.com/jsonapi?";
     let dicts = [["blng_sents_part", "rel_word", "simple", "phrs", "meta", "ec"]];
@@ -59,7 +59,7 @@ fn main() -> Result<(), Box<dyn Error>> {
         .build()?;
 
     let resp: Response = client.get(url)
-        .query(&[("q", to_search)])
+        .query(&[("q", to_translate)])
         .query(&[("dicts", dicts)])
         .send()?;
     let json_result: FyResult = resp.json()?;

@@ -130,27 +130,18 @@ struct ec_i {
     i: Vec<String>
 }
 
-impl phrs {
+impl ec {
     fn text(&self) -> String {
         let mut result = String::new();
-        self.phrs.iter().for_each(|one| {
-            result.push_str(&one.phr.headword.l.i);
-            result.push_str(" ");
-            result.push_str(&one.phr.trs[0].tr.l.i);
-            result.push_str("\n");
-        });
-        result
-    }
-}
-
-impl blng_sents_part {
-    fn text(&self) -> String {
-        let mut result = String::new();
-        self.sentence_pair.iter().for_each(|one| {
-            result.push_str(&one.sentence);
-            result.push_str("\n");
-            result.push_str(&one.sentence_translation);
-            result.push_str("\n");
+        self.word.iter().for_each(|x| {
+            result.push_str(
+                format!("美[{}], 英[{}]\n\n",
+                        x.usphone.as_deref().unwrap_or(""),
+                        x.ukphone.as_deref().unwrap_or("")).as_str()
+            );
+            x.trs.iter().for_each(|y| {
+                result.push_str(format!("- {}\n", &y.tr[0].l.i[0]).as_str());
+            })
         });
         result
     }
@@ -160,33 +151,35 @@ impl rel_word {
     fn text(&self) -> String {
         let mut result = String::new();
         self.rels.iter().for_each(|i| {
-            result.push_str(&i.rel.pos);
-            result.push_str("\n");
+            result.push_str(format!("- {}\n", &i.rel.pos).as_str());
             i.rel.words.iter().for_each(|x| {
-                result.push_str(&x.word);
-                result.push_str(" ");
-                result.push_str(&x.tran);
-                result.push_str("\n");
+                result.push_str(format!("  {} {}\n", &x.word, &x.tran).as_str());
             });
         });
         result
     }
 }
 
-impl ec {
+impl phrs {
     fn text(&self) -> String {
         let mut result = String::new();
-        self.word.iter().for_each(|x| {
-            result.push_str(
-                format!("美[{}], 英[{}]",
-                         x.usphone.as_deref().unwrap_or(""),
-                         x.ukphone.as_deref().unwrap_or("")).as_str()
+        self.phrs.iter().for_each(|one| {
+            result.push_str(format!("- {} {}\n",
+                                    &one.phr.headword.l.i,
+                                    &one.phr.trs[0].tr.l.i).as_str()
             );
-            result.push_str("\n\n");
-            x.trs.iter().for_each(|y| {
-                result.push_str(&y.tr[0].l.i[0]);
-                result.push_str("\n");
-            })
+        });
+        result
+    }
+}
+
+impl blng_sents_part {
+    fn text(&self) -> String {
+        let mut result = String::new();
+        self.sentence_pair.iter().for_each(|one| {
+            result.push_str(format!("- {}\n  {}\n",
+                                    &one.sentence,
+                                    &one.sentence_translation).as_str());
         });
         result
     }

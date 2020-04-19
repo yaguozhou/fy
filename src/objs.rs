@@ -133,14 +133,12 @@ struct ec_i {
 impl phrs {
     fn text(&self) -> String {
         let mut result = String::new();
-        for one in &self.phrs {
-            let eng = &one.phr.headword.l.i;
-            let chi = &one.phr.trs[0].tr.l.i;
-            result.push_str(&eng);
+        self.phrs.iter().for_each(|one| {
+            result.push_str(&one.phr.headword.l.i);
             result.push_str(" ");
-            result.push_str(&chi);
+            result.push_str(&one.phr.trs[0].tr.l.i);
             result.push_str("\n");
-        }
+        });
         result
     }
 }
@@ -148,9 +146,12 @@ impl phrs {
 impl blng_sents_part {
     fn text(&self) -> String {
         let mut result = String::new();
-        for i in &self.sentence_pair {
-            result.push_str(&(String::new() + &i.sentence + &"\n" + &i.sentence_translation + &"\n"));
-        }
+        self.sentence_pair.iter().for_each(|one| {
+            result.push_str(&one.sentence);
+            result.push_str("\n");
+            result.push_str(&one.sentence_translation);
+            result.push_str("\n");
+        });
         result
     }
 }
@@ -158,15 +159,16 @@ impl blng_sents_part {
 impl rel_word {
     fn text(&self) -> String {
         let mut result = String::new();
-        for i in &self.rels {
-            let pos = &i.rel.pos;
-            result.push_str(&pos);
+        self.rels.iter().for_each(|i| {
+            result.push_str(&i.rel.pos);
             result.push_str("\n");
             i.rel.words.iter().for_each(|x| {
-                result.push_str(&(String::new() + &x.word + &" " + &x.tran + "\n"));
-            }
-            );
-        }
+                result.push_str(&x.word);
+                result.push_str(" ");
+                result.push_str(&x.tran);
+                result.push_str("\n");
+            });
+        });
         result
     }
 }
@@ -176,8 +178,8 @@ impl ec {
         let mut result = String::new();
         self.word.iter().for_each(|x| {
             result.push_str(&format!("美[{}], 英[{}]",
-                                     &x.usphone.as_ref().unwrap_or(&"".to_string()),
-                                     &x.ukphone.as_ref().unwrap_or(&"".to_string())));
+                                     x.usphone.as_ref().unwrap_or(&"".to_string()),
+                                     x.ukphone.as_ref().unwrap_or(&"".to_string())));
             result.push_str("\n\n");
             x.trs.iter().for_each(|y| {
                 result.push_str(&y.tr[0].l.i[0]);
@@ -199,22 +201,14 @@ impl FyResult {
 -----例句-----
 {}"#,
                 self.input.red().bold().underline(),
-                match &self.ec {
-                    Some(ec) => ec.text().red().bold(),
-                    _ => "".into()
-                },
-                match &self.rel_word {
-                    Some(rel) => rel.text().blue().bold(),
-                    _ => "".into()
-                },
-                match &self.phrs {
-                    Some(phrs) => phrs.text().purple().bold(),
-                    _ => "".into()
-                },
-                match &self.blng_sents_part {
-                    Some(blng) => blng.text().cyan().bold(),
-                    _ => "".into()
-                }
+                self.ec.as_ref().map_or(ColoredString::from(""),
+                                        |ec| ec.text().red().bold()),
+                self.rel_word.as_ref().map_or(ColoredString::from(""),
+                                              |rel| { rel.text().blue().bold() }),
+                self.phrs.as_ref().map_or(ColoredString::from(""),
+                                          |phrs| phrs.text().purple().bold()),
+                self.blng_sents_part.as_ref().map_or(ColoredString::from(""),
+                                                     |blng| blng.text().cyan().bold()),
         )
     }
 }

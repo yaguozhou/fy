@@ -22,15 +22,16 @@ use std::error::Error;
 use std::time::Duration;
 
 use clap::{App, Arg};
-use reqwest::blocking::Client;
-use reqwest::blocking::Response;
+use reqwest::Client;
+use reqwest::Response;
 use serde_json::json;
 
 use objs::*;
 
 mod objs;
 
-fn main() -> Result<(), Box<dyn Error>> {
+#[tokio::main]
+async fn main() -> Result<(), Box<dyn Error>> {
     let matches = App::new(crate_name!())
         .version(crate_version!())
         .author(crate_authors!())
@@ -52,6 +53,7 @@ fn main() -> Result<(), Box<dyn Error>> {
             "dicts":dicts
         }
     ).to_string();
+
     let client = Client::builder()
         .connect_timeout(Duration::from_secs(3))
         .timeout(Duration::from_secs(5))
@@ -61,8 +63,9 @@ fn main() -> Result<(), Box<dyn Error>> {
     let resp: Response = client.get(url)
         .query(&[("q", to_translate)])
         .query(&[("dicts", dicts)])
-        .send()?;
-    let json_result: FyResult = resp.json()?;
+        .send()
+        .await?;
+    let json_result: FyResult = resp.json().await?;
     println!("{}", &json_result.text());
 
     Ok(())

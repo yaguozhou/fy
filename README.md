@@ -1,4 +1,4 @@
-# fy
+# fy  ![build fy on ubuntu](https://github.com/abstractsuperman/fy/workflows/build%20fy%20on%20ubuntu/badge.svg)
 
 fy, abbreviation of fanyi, is a translation cli tool written by rust.
 

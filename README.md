@@ -1,4 +1,4 @@
-# fy  ![build fy on ubuntu](https://github.com/abstractsuperman/fy/workflows/build%20fy%20on%20ubuntu/badge.svg)
+# fy  ![Continuous integration](https://github.com/abstractsuperman/fy/workflows/Continuous%20integration/badge.svg)
 
 fy, abbreviation of fanyi, is a translation cli tool written by rust.
 

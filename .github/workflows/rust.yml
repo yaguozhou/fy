@@ -1,4 +1,4 @@
-name: Rust
+name: build fy on ubuntu
 
 on:
   push:

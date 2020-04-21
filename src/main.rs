@@ -36,23 +36,32 @@ async fn main() -> Result<(), Box<dyn Error>> {
         .version(crate_version!())
         .author(crate_authors!())
         .about(crate_description!())
-        .arg(Arg::with_name("to_translate")
-            .required(true)
-            .help("word to translate")
+        .arg(
+            Arg::with_name("to_translate")
+                .required(true)
+                .help("word to translate"),
         )
         .get_matches();
 
     let to_translate = matches.value_of("to_translate").unwrap();
 
     let url = "http://dict.youdao.com/jsonapi?";
-    let dicts = [["blng_sents_part", "rel_word", "simple", "phrs", "meta", "ec"]];
+    let dicts = [[
+        "blng_sents_part",
+        "rel_word",
+        "simple",
+        "phrs",
+        "meta",
+        "ec",
+    ]];
 
     let dicts = json!(
         {
             "count":99,
             "dicts":dicts
         }
-    ).to_string();
+    )
+    .to_string();
 
     let client = Client::builder()
         .connect_timeout(Duration::from_secs(3))
@@ -60,7 +69,8 @@ async fn main() -> Result<(), Box<dyn Error>> {
         .user_agent("curl")
         .build()?;
 
-    let resp: Response = client.get(url)
+    let resp: Response = client
+        .get(url)
         .query(&[("q", to_translate)])
         .query(&[("dicts", dicts)])
         .send()

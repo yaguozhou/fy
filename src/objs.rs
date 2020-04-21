@@ -121,13 +121,13 @@ struct ec_tr {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(rename = "l")]
 struct ec_l {
-    l: ec_i
+    l: ec_i,
 }
 
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(rename = "i")]
 struct ec_i {
-    i: Vec<String>
+    i: Vec<String>,
 }
 
 impl ec {
@@ -135,9 +135,12 @@ impl ec {
         let mut result = String::new();
         self.word.iter().for_each(|x| {
             result.push_str(
-                format!("美[{}], 英[{}]\n\n",
-                        x.usphone.as_deref().unwrap_or(""),
-                        x.ukphone.as_deref().unwrap_or("")).as_str()
+                format!(
+                    "美[{}], 英[{}]\n\n",
+                    x.usphone.as_deref().unwrap_or(""),
+                    x.ukphone.as_deref().unwrap_or("")
+                )
+                .as_str(),
             );
             x.trs.iter().for_each(|y| {
                 result.push_str(format!("- {}\n", &y.tr[0].l.i[0]).as_str());
@@ -164,9 +167,8 @@ impl phrs {
     fn text(&self) -> String {
         let mut result = String::new();
         self.phrs.iter().for_each(|one| {
-            result.push_str(format!("- {} {}\n",
-                                    &one.phr.headword.l.i,
-                                    &one.phr.trs[0].tr.l.i).as_str()
+            result.push_str(
+                format!("- {} {}\n", &one.phr.headword.l.i, &one.phr.trs[0].tr.l.i).as_str(),
             );
         });
         result
@@ -177,9 +179,9 @@ impl blng_sents_part {
     fn text(&self) -> String {
         let mut result = String::new();
         self.sentence_pair.iter().for_each(|one| {
-            result.push_str(format!("- {}\n  {}\n",
-                                    &one.sentence,
-                                    &one.sentence_translation).as_str());
+            result.push_str(
+                format!("- {}\n  {}\n", &one.sentence, &one.sentence_translation).as_str(),
+            );
         });
         result
     }
@@ -187,7 +189,8 @@ impl blng_sents_part {
 
 impl FyResult {
     pub fn text(&self) -> String {
-        format!(r#"{}
+        format!(
+            r#"{}
 {}
 -----同根-----
 {}
@@ -195,15 +198,19 @@ impl FyResult {
 {}
 -----例句-----
 {}"#,
-                self.input.red().bold().underline(),
-                self.ec.as_ref().map_or(ColoredString::from(""),
-                                        |ec| ec.text().red().bold()),
-                self.rel_word.as_ref().map_or(ColoredString::from(""),
-                                              |rel| { rel.text().blue().bold() }),
-                self.phrs.as_ref().map_or(ColoredString::from(""),
-                                          |phrs| phrs.text().purple().bold()),
-                self.blng_sents_part.as_ref().map_or(ColoredString::from(""),
-                                                     |blng| blng.text().cyan().bold()),
+            self.input.red().bold().underline(),
+            self.ec
+                .as_ref()
+                .map_or(ColoredString::from(""), |ec| ec.text().red().bold()),
+            self.rel_word
+                .as_ref()
+                .map_or(ColoredString::from(""), |rel| { rel.text().blue().bold() }),
+            self.phrs
+                .as_ref()
+                .map_or(ColoredString::from(""), |phrs| phrs.text().purple().bold()),
+            self.blng_sents_part
+                .as_ref()
+                .map_or(ColoredString::from(""), |blng| blng.text().cyan().bold()),
         )
     }
 }

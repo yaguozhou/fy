@@ -18,9 +18,10 @@ steps:
     registry = "https://mirrors.ustc.edu.cn/crates.io-index"
     EOF
     ```
-3. bash ./install_on_local.sh
-4. chmod +x ~/.cargo/bin/fy
-5. execute `fy --help` and enjoy.
+3. git clone https://github.com/abstractsuperman/fy.git
+4. bash install_on_local.sh
+5. chmod +x ~/.cargo/bin/fy
+6. execute `fy --help` and enjoy.
 
 ![fy-help](./fy-help.png)
 

@@ -32,6 +32,9 @@ use serde_json::json;
 
 mod objs;
 
+const CONNECT_TIMEOUT_SECS: u64 = 5;
+const READ_TIMEOUT_SECS: u64 = 5;
+
 #[tokio::main]
 async fn main() -> Result<(), Box<dyn Error>> {
     env_logger::init();
@@ -67,8 +70,8 @@ async fn main() -> Result<(), Box<dyn Error>> {
     .to_string();
 
     let client = Client::builder()
-        .connect_timeout(Duration::from_secs(3))
-        .timeout(Duration::from_secs(5))
+        .connect_timeout(Duration::from_secs(CONNECT_TIMEOUT_SECS))
+        .timeout(Duration::from_secs(READ_TIMEOUT_SECS))
         .user_agent("curl")
         .build()?;
 

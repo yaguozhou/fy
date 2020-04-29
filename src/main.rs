@@ -17,21 +17,24 @@
 extern crate clap;
 #[macro_use]
 extern crate serde;
+#[macro_use]
+extern crate log;
 
 use std::error::Error;
 use std::time::Duration;
 
 use clap::{App, Arg};
+use log::Level;
+use objs::*;
 use reqwest::Client;
 use reqwest::Response;
 use serde_json::json;
-
-use objs::*;
 
 mod objs;
 
 #[tokio::main]
 async fn main() -> Result<(), Box<dyn Error>> {
+    env_logger::init();
     let matches = App::new(crate_name!())
         .version(crate_version!())
         .author(crate_authors!())

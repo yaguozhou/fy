@@ -23,21 +23,23 @@ extern crate log;
 use std::error::Error;
 use std::time::Duration;
 
+use chrono::Local;
 use clap::{App, Arg};
-use log::Level;
+use log::LevelFilter;
 use objs::*;
 use reqwest::Client;
-use reqwest::Response;
 use serde_json::json;
+use std::io::Write;
+use std::process::exit;
 
 mod objs;
 
-const CONNECT_TIMEOUT_SECS: u64 = 5;
-const READ_TIMEOUT_SECS: u64 = 5;
+const CONNECT_TIMEOUT_SECS: u64 = 1;
+const READ_TIMEOUT_SECS: u64 = 3;
 
 #[tokio::main]
 async fn main() -> Result<(), Box<dyn Error>> {
-    env_logger::init();
+    init_logger();
     let matches = App::new(crate_name!())
         .version(crate_version!())
         .author(crate_authors!())
@@ -75,14 +77,42 @@ async fn main() -> Result<(), Box<dyn Error>> {
         .user_agent("curl")
         .build()?;
 
-    let resp: Response = client
+    let response = client
         .get(url)
         .query(&[("q", to_translate)])
         .query(&[("dicts", dicts)])
         .send()
-        .await?;
-    let json_result: FyResult = resp.json().await?;
-    println!("{}", &json_result.text());
+        .await;
+    match response {
+        Ok(resp) => {
+            let json_result: FyResult = resp.json().await?;
+            println!("{}", &json_result.text());
+        }
+        Err(e) => {
+            debug!("{:?}", e);
+            if e.is_timeout() {
+                error!("Network timeout, try again.");
+            } else {
+                error!("{}", e);
+                exit(1);
+            }
+        }
+    }
 
     Ok(())
+}
+
+fn init_logger() {
+    env_logger::Builder::new()
+        .format(|buf, record| {
+            writeln!(
+                buf,
+                "{} [{}] - {}",
+                Local::now().format("%Y-%m-%d %H:%M:%S"),
+                record.level(),
+                record.args()
+            )
+        })
+        .filter(None, LevelFilter::Info)
+        .init();
 }

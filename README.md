@@ -1,6 +1,7 @@
 # fy  ![Continuous integration](https://github.com/abstractsuperman/fy/workflows/Continuous%20integration/badge.svg)
 
-fy, abbreviation of fanyi, is a translation cli tool written by rust.
+fy, abbreviation of fanyi, is an english-chinese translation cli tool based
+ on youdao api, and written in rust.
 
 ## build and install on Linux and Mac OS X
 

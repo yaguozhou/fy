@@ -3,7 +3,8 @@ name = "fy"
 version = "0.1.0"
 authors = ["abstractsuperman <abstractsuperman@126.com>"]
 edition = "2018"
-description = "fy, abbreviation of fanyi, is a translation cli tool written by rust."
+description = '''fy, abbreviation of fanyi, is an english-chinese translation
+cli tool based on youdao api, and written in rust.'''
 
 [dependencies]
 colored = "1.9"

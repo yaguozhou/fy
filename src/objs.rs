@@ -166,7 +166,7 @@ impl rel_word {
 impl phrs {
     fn text(&self) -> String {
         let mut result = String::new();
-        self.phrs.iter().for_each(|one| {
+        self.phrs.iter().take(3).for_each(|one| {
             result.push_str(
                 format!("- {} {}\n", &one.phr.headword.l.i, &one.phr.trs[0].tr.l.i).as_str(),
             );
@@ -192,22 +192,22 @@ impl FyResult {
         format!(
             r#"{}
 {}
------同根-----
+【同根】
 {}
------短语-----
+【短语】
 {}
------例句-----
+【例句】
 {}"#,
             self.input.red().bold().underline(),
             self.ec
                 .as_ref()
-                .map_or(ColoredString::from(""), |ec| ec.text().red().bold()),
+                .map_or(ColoredString::from(""), |ec| ec.text().purple().bold()),
             self.rel_word
                 .as_ref()
                 .map_or(ColoredString::from(""), |rel| { rel.text().blue().bold() }),
             self.phrs
                 .as_ref()
-                .map_or(ColoredString::from(""), |phrs| phrs.text().purple().bold()),
+                .map_or(ColoredString::from(""), |phrs| phrs.text().red().bold()),
             self.blng_sents_part
                 .as_ref()
                 .map_or(ColoredString::from(""), |blng| blng.text().cyan().bold()),

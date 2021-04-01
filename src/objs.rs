@@ -191,14 +191,12 @@ impl FyResult {
     pub fn text(&self) -> String {
         format!(
             r#"{}
-{}
 【同根】
 {}
 【短语】
 {}
 【例句】
 {}"#,
-            self.input.red().bold().underline(),
             self.ec
                 .as_ref()
                 .map_or(ColoredString::from(""), |ec| ec.text().purple().bold()),

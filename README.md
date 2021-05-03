@@ -1,4 +1,4 @@
-# fy  ![Continuous integration](https://github.com/abstractsuperman/fy/workflows/Continuous%20integration/badge.svg)
+# fy
 
 fy, abbreviation of fanyi, is an english-chinese translation cli tool based
  on youdao api, and written in rust.
@@ -19,7 +19,7 @@ steps:
     registry = "https://mirrors.ustc.edu.cn/crates.io-index"
     EOF
     ```
-3. git clone https://github.com/abstractsuperman/fy.git
+3. git clone https://github.com/yaguozhou/fy.git
 4. bash install_on_local.sh
 5. chmod +x ~/.cargo/bin/fy
 6. execute `fy --help` and enjoy.

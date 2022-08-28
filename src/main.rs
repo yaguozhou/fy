@@ -30,12 +30,12 @@ use objs::*;
 use reqwest::Client;
 use serde_json::json;
 use std::io::Write;
-use std::process::exit;
 
 mod objs;
 
-const CONNECT_TIMEOUT_SECS: u64 = 1;
-const READ_TIMEOUT_SECS: u64 = 3;
+const CONNECT_TIMEOUT_SECS: u64 = 2;
+const READ_TIMEOUT_SECS: u64 = 2;
+const MAX_TRY: u8 = 3;
 
 #[tokio::main]
 async fn main() -> Result<(), Box<dyn Error>> {
@@ -77,24 +77,33 @@ async fn main() -> Result<(), Box<dyn Error>> {
         .user_agent("curl")
         .build()?;
 
-    let response = client
-        .get(url)
-        .query(&[("q", to_translate)])
-        .query(&[("dicts", dicts)])
-        .send()
-        .await;
-    match response {
-        Ok(resp) => {
-            let json_result: FyResult = resp.json().await?;
-            println!("{}", &json_result.text());
-        }
-        Err(e) => {
-            debug!("{:?}", e);
-            if e.is_timeout() {
-                error!("Network timeout, try again.");
-            } else {
-                error!("{}", e);
-                exit(1);
+    let mut times_left = MAX_TRY;
+    loop{
+        let response = client
+            .get(url)
+            .query(&[("q", to_translate)])
+            .query(&[("dicts", &dicts)])
+            .send()
+            .await;
+        match response {
+            Ok(resp) => {
+                let json_result: FyResult = resp.json().await?;
+                println!("{}", &json_result.text());
+                break;
+            }
+            Err(e) => {
+                debug!("{:?}", e);
+                if e.is_timeout() {
+                    error!("Network timeout, retrying...");
+                    if times_left > 0{
+                        times_left -= 1;
+                        continue;
+                    } else {
+                        break;
+                    }
+                } else {
+                    error!("{}", e);
+                }
             }
         }
     }

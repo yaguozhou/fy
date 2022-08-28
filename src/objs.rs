@@ -199,13 +199,13 @@ impl FyResult {
 {}"#,
             self.ec
                 .as_ref()
-                .map_or(ColoredString::from(""), |ec| ec.text().purple().bold()),
+                .map_or(ColoredString::from(""), |ec| ec.text().red().bold()),
             self.rel_word
                 .as_ref()
                 .map_or(ColoredString::from(""), |rel| { rel.text().blue().bold() }),
             self.phrs
                 .as_ref()
-                .map_or(ColoredString::from(""), |phrs| phrs.text().red().bold()),
+                .map_or(ColoredString::from(""), |phrs| phrs.text().purple().bold()),
             self.blng_sents_part
                 .as_ref()
                 .map_or(ColoredString::from(""), |blng| blng.text().cyan().bold()),
